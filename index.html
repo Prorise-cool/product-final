@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成品图导航</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh; padding: 40px; }
+    h1 { text-align: center; margin-bottom: 40px; font-weight: 600; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; max-width: 1200px; margin: 0 auto; }
+    .card { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; transition: all 0.2s; }
+    .card:hover { border-color: #666; transform: translateY(-2px); }
+    .card h2 { font-size: 16px; margin-bottom: 8px; color: #fff; }
+    .card p { font-size: 13px; color: #888; }
+    .section { margin-bottom: 40px; }
+    .section h2 { font-size: 20px; color: #888; margin-bottom: 16px; border-bottom: 1px solid #333; padding-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <h1>成品图导航</h1>
+
+  <div class="section">
+    <h2>正式路由页面</h2>
+    <div class="grid">
+      <a class="card" href="01-正式路由页面/01-首页与入口/01-landingPage.html">
+        <h2>Landing Page</h2>
+        <p>首页与入口</p>
+      </a>
+      <a class="card" href="01-正式路由页面/01-首页与入口/02-home.html">
+        <h2>Home</h2>
+        <p>首页</p>
+      </a>
+      <a class="card" href="01-正式路由页面/02-认证页/01-login.html">
+        <h2>Login</h2>
+        <p>登录页</p>
+      </a>
+      <a class="card" href="01-正式路由页面/02-认证页/02-信息收集页.html">
+        <h2>信息收集页</h2>
+        <p>认证页</p>
+      </a>
+      <a class="card" href="01-正式路由页面/02-认证页/03-导览页.html">
+        <h2>导览页</h2>
+        <p>认证页</p>
+      </a>
+      <a class="card" href="01-正式路由页面/03-视频输入页/01-input.html">
+        <h2>视频输入页</h2>
+        <p>视频相关</p>
+      </a>
+      <a class="card" href="01-正式路由页面/04-视频等待页/01-generating.html">
+        <h2>视频等待页</h2>
+        <p>视频生成中</p>
+      </a>
+      <a class="card" href="01-正式路由页面/05-视频结果页/02-video-result.html">
+        <h2>视频结果页</h2>
+        <p>视频完成</p>
+      </a>
+      <a class="card" href="01-正式路由页面/06-课堂输入页/01-input.html">
+        <h2>课堂输入页</h2>
+        <p>课堂相关</p>
+      </a>
+      <a class="card" href="01-正式路由页面/07-课堂等待页/01-generating.html">
+        <h2>课堂等待页</h2>
+        <p>课堂生成中</p>
+      </a>
+      <a class="card" href="01-正式路由页面/08-课堂结果页/01-classroom.html">
+        <h2>课堂结果页</h2>
+        <p>课堂完成</p>
+      </a>
+      <a class="card" href="01-正式路由页面/10-Checkpoint 与 Quiz 页/01-entry.html">
+        <h2>Checkpoint 入口</h2>
+        <p>Checkpoint</p>
+      </a>
+      <a class="card" href="01-正式路由页面/10-Checkpoint 与 Quiz 页/02-checkpoint.html">
+        <h2>Checkpoint</h2>
+        <p>检查点</p>
+      </a>
+      <a class="card" href="01-正式路由页面/10-Checkpoint 与 Quiz 页/03-quiz.html">
+        <h2>Quiz</h2>
+        <p>测验</p>
+      </a>
+      <a class="card" href="01-正式路由页面/11-学习路径页/01-path.html">
+        <h2>学习路径</h2>
+        <p>路径页</p>
+      </a>
+      <a class="card" href="01-正式路由页面/12-学习中心页/01-learning.html">
+        <h2>学习中心</h2>
+        <p>学习</p>
+      </a>
+      <a class="card" href="01-正式路由页面/13-个人资料页/01-profile.html">
+        <h2>个人资料</h2>
+        <p>用户页</p>
+      </a>
+      <a class="card" href="01-正式路由页面/14-历史记录页/01-history.html">
+        <h2>历史记录</h2>
+        <p>记录</p>
+      </a>
+      <a class="card" href="01-正式路由页面/15-收藏页/01-favorites.html">
+        <h2>收藏</h2>
+        <p>收藏页</p>
+      </a>
+      <a class="card" href="01-正式路由页面/16-设置页/01-settings.html">
+        <h2>设置</h2>
+        <p>设置页</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>共享交互与通用状态</h2>
+    <div class="grid">
+      <a class="card" href="02-共享交互与通用状态/01-任务等待与进度/nav.html">
+        <h2>导航</h2>
+        <p>导航栏</p>
+      </a>
+      <a class="card" href="02-共享交互与通用状态/02-通用反馈状态/states.html">
+        <h2>通用状态</h2>
+        <p>状态页</p>
+      </a>
+      <a class="card" href="02-共享交互与通用状态/02-通用反馈状态/confirm-dialog.html">
+        <h2>确认对话框</h2>
+        <p>弹窗</p>
+      </a>
+      <a class="card" href="02-共享交互与通用状态/02-通用反馈状态/loading.html">
+        <h2>Loading</h2>
+        <p>加载状态</p>
+      </a>
+      <a class="card" href="02-共享交互与通用状态/02-通用反馈状态/compoents.html">
+        <h2>组件</h2>
+        <p>组件页</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
