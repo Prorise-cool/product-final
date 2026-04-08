@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小麦设计系统 — Dark Mode Style Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Brand */
+    --primary: #f5c547;
+    --primary-dark: #e6b841;
+    --secondary: #f5ede1;
+    --secondary-dark: #2a2420;
+    --decorative: #3b1701;
+
+    /* Light */
+    --bg-light: #f5ede1;
+    --surface-light: #ffffff;
+    --text-primary-light: #3b1701;
+    --text-secondary-light: #6b4421;
+    --border-light: #e6dcc8;
+
+    /* Dark */
+    --dk-bg: #1a1614;
+    --dk-surface: #2a2420;
+    --dk-surface-elevated: #332e28;
+    --dk-border: #3d3630;
+    --dk-text-primary: #f5ede1;
+    --dk-text-secondary: #c4b8a8;
+    --dk-text-muted: #8a7e72;
+
+    /* Semantic */
+    --success: #52c41a;
+    --success-dark: #51d712;
+    --warning: #ff6700;
+    --warning-dark: #f34700;
+    --error: #f82834;
+    --error-dark: #bf0004;
+    --focus-ring: rgba(245, 197, 71, 0.4);
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    /* Font */
+    --font: 'Inter', -apple-system, system-ui, 'Segoe UI', 'Noto Sans SC', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    background: var(--dk-bg);
+    color: var(--dk-text-primary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.50;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* BADGE */
+  .mode-badge {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 200;
+    background: var(--primary);
+    color: var(--decorative);
+    padding: 5px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+    background: rgba(26, 22, 20, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--dk-border);
+  }
+  .nav-brand {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-brand-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--decorative);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dk-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--primary); }
+  .nav-cta {
+    background: var(--primary);
+    color: var(--decorative);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    background: var(--dk-bg);
+    padding: 80px 32px 64px;
+    border-bottom: 1px solid var(--dk-border);
+  }
+  .hero-inner { max-width: 800px; margin: 0 auto; }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.20;
+    letter-spacing: -0.5px;
+    color: var(--dk-text-primary);
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--primary); }
+  .hero .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.56;
+    color: var(--dk-text-secondary);
+    margin-bottom: 32px;
+  }
+  .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* SECTIONS */
+  .section { padding: 64px 32px; max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.33;
+    color: var(--dk-text-primary);
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.50;
+    color: var(--dk-text-secondary);
+    margin-bottom: 40px;
+  }
+
+  /* COLORS */
+  .color-category { margin-bottom: 32px; }
+  .color-category h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dk-text-secondary);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+  }
+  .color-swatch {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--dk-border);
+    background: var(--dk-surface);
+  }
+  .swatch-color { height: 80px; width: 100%; }
+  .swatch-info { padding: 10px 12px; }
+  .swatch-name { font-size: 13px; font-weight: 700; color: var(--dk-text-primary); margin-bottom: 2px; }
+  .swatch-hex { font-size: 12px; font-weight: 500; color: var(--dk-text-muted); font-family: monospace; margin-bottom: 4px; }
+  .swatch-role { font-size: 11px; color: var(--dk-text-secondary); line-height: 1.4; }
+
+  /* SEMANTIC COLORS */
+  .semantic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .semantic-card {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--dk-border);
+    background: var(--dk-surface);
+    overflow: hidden;
+  }
+  .semantic-bar { height: 6px; }
+  .semantic-body { padding: 14px 16px; }
+  .semantic-label { font-size: 13px; font-weight: 700; color: var(--dk-text-primary); margin-bottom: 4px; }
+  .semantic-values { font-size: 12px; color: var(--dk-text-muted); font-family: monospace; }
+
+  /* TYPOGRAPHY */
+  .type-sample {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--dk-border);
+  }
+  .type-sample:last-child { border-bottom: none; }
+  .type-sample .type-text { color: var(--dk-text-primary); margin-bottom: 6px; }
+  .type-sample .type-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--primary);
+    font-family: monospace;
+    line-height: 1.4;
+  }
+
+  /* BUTTONS */
+  .button-grid { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .button-item { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .btn-label { font-size: 11px; font-weight: 500; color: var(--dk-text-muted); font-family: monospace; }
+  .btn-primary {
+    background: var(--primary);
+    color: var(--decorative);
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--font);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary {
+    background: var(--dk-surface-elevated);
+    color: var(--dk-text-primary);
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font);
+    border: 1px solid var(--dk-border);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .btn-secondary:hover { color: var(--primary); border-color: var(--primary); }
+  .btn-outline {
+    background: transparent;
+    color: var(--dk-text-primary);
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font);
+    border: 1px solid var(--dk-border);
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .btn-outline:hover { color: var(--primary); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--dk-text-secondary);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font);
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .btn-ghost:hover { color: var(--primary); }
+  .btn-sm {
+    background: var(--primary);
+    color: var(--decorative);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--font);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn-sm:hover { opacity: 0.85; }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .card { border-radius: var(--radius-md); padding: 24px; transition: transform 0.15s; }
+  .card-bordered { background: var(--dk-surface); border: 1px solid var(--dk-border); }
+  .card-elevated { background: var(--dk-surface-elevated); border: 1px solid var(--dk-border); }
+  .card-shadow {
+    background: var(--dk-surface);
+    border: 1px solid var(--dk-border);
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.29);
+  }
+  .card-hover:hover { transform: translateY(-2px); }
+  .card h4 { font-size: 20px; font-weight: 700; color: var(--dk-text-primary); margin-bottom: 8px; line-height: 1.40; }
+  .card .card-desc { font-size: 15px; font-weight: 400; line-height: 1.71; color: var(--dk-text-secondary); }
+  .card .card-label { font-size: 11px; font-weight: 500; color: var(--primary); font-family: monospace; margin-top: 12px; }
+  .card-accent { border-left: 3px solid var(--primary); }
+
+  /* FORMS */
+  .form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 14px; font-weight: 600; color: var(--dk-text-primary); }
+  .form-group input, .form-group textarea {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--dk-border);
+    background: var(--dk-surface);
+    color: var(--dk-text-primary);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--dk-text-muted); }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--focus-ring);
+  }
+  .form-group input.error { border-color: var(--error); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-hint { font-size: 11px; color: var(--dk-text-muted); font-family: monospace; }
+  .form-error-text { font-size: 11px; color: var(--error); }
+
+  /* SPACING */
+  .spacing-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+  .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .spacing-box { background: var(--primary); border-radius: 2px; height: 40px; opacity: 0.6; }
+  .spacing-label { font-size: 10px; font-weight: 600; color: var(--dk-text-muted); font-family: monospace; }
+
+  /* RADIUS */
+  .radius-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+  .radius-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .radius-box { width: 80px; height: 80px; background: var(--dk-surface-elevated); border: 1px solid var(--dk-border); }
+  .radius-label { font-size: 12px; font-weight: 700; color: var(--dk-text-primary); font-family: monospace; }
+  .radius-context { font-size: 10px; color: var(--dk-text-muted); text-align: center; }
+
+  /* SHADOWS */
+  .shadow-section {
+    background: var(--dk-surface);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    border: 1px solid var(--dk-border);
+  }
+  .shadow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .shadow-card {
+    background: var(--dk-surface-elevated);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    min-height: 120px;
+  }
+  .shadow-card h4 { font-size: 14px; font-weight: 700; color: var(--dk-text-primary); margin-bottom: 6px; }
+  .shadow-card p { font-size: 12px; color: var(--dk-text-secondary); line-height: 1.5; }
+  .sh-sm { box-shadow: 0px 2px 8px rgba(0,0,0,0.10); }
+  .sh-md { box-shadow: 0px 4px 16px rgba(0,0,0,0.12); }
+  .sh-lg { box-shadow: 0px 8px 24px rgba(0,0,0,0.16); }
+
+  /* TOKEN TABLE */
+  .token-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .token-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--dk-text-muted);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--dk-border);
+  }
+  .token-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--dk-border);
+    color: var(--dk-text-secondary);
+  }
+  .token-table td:first-child { color: var(--dk-text-primary); font-weight: 600; }
+  .token-table code {
+    background: var(--dk-surface-elevated);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: var(--primary);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 32px;
+    border-top: 1px solid var(--dk-border);
+    font-size: 13px;
+    color: var(--dk-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 10px 16px; }
+    .nav-links { display: none; }
+    .hero { padding: 48px 16px 40px; }
+    .hero h1 { font-size: 24px; }
+    .section { padding: 40px 16px; }
+    .section-title { font-size: 20px; }
+    .color-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .card-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .shadow-section { padding: 20px; }
+    .shadow-grid { grid-template-columns: 1fr; }
+    .mode-badge { top: 10px; right: 10px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MODE BADGE -->
+<div class="mode-badge">Dark Mode</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <span class="nav-brand-icon">麦</span>
+    <span>小麦设计系统</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#colors">色彩</a></li>
+    <li><a href="#typography">字体</a></li>
+    <li><a href="#buttons">按钮</a></li>
+    <li><a href="#cards">卡片</a></li>
+    <li><a href="#forms">表单</a></li>
+    <li><a href="#spacing">间距</a></li>
+    <li><a href="#radius">圆角</a></li>
+    <li><a href="#shadows">阴影</a></li>
+    <li><a href="#tokens">令牌</a></li>
+  </ul>
+  <a href="#" class="nav-cta">v1.0</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>小麦设计系统<br><span>XiaoMai Design Tokens</span></h1>
+    <p class="subtitle">温暖小麦色调的设计令牌体系 — 金色主色调搭配暖棕底色，营造学习型产品的亲和力与专注感。</p>
+    <div class="hero-buttons">
+      <button class="btn-primary">浏览令牌</button>
+      <button class="btn-outline">查看 design-tokens.md</button>
+    </div>
+  </div>
+</section>
+
+<!-- 1. COLORS -->
+<section class="section" id="colors">
+  <h2 class="section-title">色彩系统</h2>
+  <p class="section-subtitle">以小麦金色为核心的品牌色彩，搭配暖棕底色和深色模式适配。</p>
+
+  <div class="color-category">
+    <h3>品牌色 Brand</h3>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="swatch-color" style="background:#f5c547;"></div><div class="swatch-info"><div class="swatch-name">Primary 金麦色</div><div class="swatch-hex">#f5c547</div><div class="swatch-role">主色调 / CTA / 强调</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#e6b841;"></div><div class="swatch-info"><div class="swatch-name">Primary Dark</div><div class="swatch-hex">#e6b841</div><div class="swatch-role">深色主色 / hover态</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#f5ede1;"></div><div class="swatch-info"><div class="swatch-name">Secondary 暖米色</div><div class="swatch-hex">#f5ede1</div><div class="swatch-role">亮色背景 / 卡片</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#2a2420;"></div><div class="swatch-info"><div class="swatch-name">Secondary Dark</div><div class="swatch-hex">#2a2420</div><div class="swatch-role">暗色卡片表面</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#3b1701;"></div><div class="swatch-info"><div class="swatch-name">Decorative 深棕</div><div class="swatch-hex">#3b1701</div><div class="swatch-role">正文色 / 品牌深色</div></div></div>
+    </div>
+  </div>
+
+  <div class="color-category">
+    <h3>暗色模式 Dark Mode</h3>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="swatch-color" style="background:#1a1614;"></div><div class="swatch-info"><div class="swatch-name">Background</div><div class="swatch-hex">#1a1614</div><div class="swatch-role">页面背景</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#2a2420;"></div><div class="swatch-info"><div class="swatch-name">Surface</div><div class="swatch-hex">#2a2420</div><div class="swatch-role">卡片/容器</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#332e28;"></div><div class="swatch-info"><div class="swatch-name">Surface Elevated</div><div class="swatch-hex">#332e28</div><div class="swatch-role">提升层表面</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#f5ede1;"></div><div class="swatch-info"><div class="swatch-name">Text Primary</div><div class="swatch-hex">#f5ede1</div><div class="swatch-role">主要文本</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#c4b8a8;"></div><div class="swatch-info"><div class="swatch-name">Text Secondary</div><div class="swatch-hex">#c4b8a8</div><div class="swatch-role">次要文本</div></div></div>
+      <div class="color-swatch"><div class="swatch-color" style="background:#3d3630;"></div><div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#3d3630</div><div class="swatch-role">边框/分割线</div></div></div>
+    </div>
+  </div>
+
+  <div class="color-category">
+    <h3>语义色 Semantic</h3>
+    <div class="semantic-grid">
+      <div class="semantic-card">
+        <div class="semantic-bar" style="background: linear-gradient(to right, #52c41a, #51d712);"></div>
+        <div class="semantic-body">
+          <div class="semantic-label">Success 成功</div>
+          <div class="semantic-values">#52c41a → #51d712</div>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-bar" style="background: linear-gradient(to right, #ff6700, #f34700);"></div>
+        <div class="semantic-body">
+          <div class="semantic-label">Warning 警告</div>
+          <div class="semantic-values">#ff6700 → #f34700</div>
+        </div>
+      </div>
+      <div class="semantic-card">
+        <div class="semantic-bar" style="background: linear-gradient(to right, #f82834, #bf0004);"></div>
+        <div class="semantic-body">
+          <div class="semantic-label">Error 错误</div>
+          <div class="semantic-values">#f82834 → #bf0004</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. TYPOGRAPHY -->
+<section class="section" id="typography">
+  <h2 class="section-title">排版系统</h2>
+  <p class="section-subtitle">Inter 字体族，7 级尺寸，从页面标题到辅助文字。</p>
+
+  <div class="type-sample">
+    <div class="type-text" style="font-size:48px; font-weight:800; line-height:1.15; letter-spacing:-1px;">H1 页面大标题</div>
+    <div class="type-label">H1 — 48px / weight:600,800 / line-height:1.15</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-text" style="font-size:36px; font-weight:600; line-height:1.30;">H2 模块标题</div>
+    <div class="type-label">H2 — 36px / weight:600 / line-height:1.30</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-text" style="font-size:24px; font-weight:500; line-height:1.33;">H3 卡片标题</div>
+    <div class="type-label">H3 — 24px / weight:500 / line-height:1.33</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-text" style="font-size:18px; font-weight:500; line-height:1.50;">Body Large 正文大 — 用于强调性段落和引导文字。</div>
+    <div class="type-label">Body Large — 18px / weight:400,500 / line-height:1.50</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-text" style="font-size:16px; font-weight:400; line-height:1.50;">Body 正文 — 标准阅读文本，适合大多数内容展示场景。</div>
+    <div class="type-label">Body — 16px / weight:400 / line-height:1.50</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-text" style="font-size:14px; font-weight:400; line-height:1.50;">Body Small 正文小 — 辅助说明、次要信息和列表内容。</div>
+    <div class="type-label">Body Small — 14px / weight:400 / line-height:1.50</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-text" style="font-size:12px; font-weight:400; line-height:1.50;">Caption 辅助文字 — 时间戳、标签、脚注等。</div>
+    <div class="type-label">Caption — 12px / weight:400 / line-height:1.50</div>
+  </div>
+</section>
+
+<!-- 3. BUTTONS -->
+<section class="section" id="buttons">
+  <h2 class="section-title">按钮变体</h2>
+  <p class="section-subtitle">暗色表面上的按钮 — 金麦色主操作按钮为视觉锚点。</p>
+
+  <div class="button-grid">
+    <div class="button-item">
+      <button class="btn-primary">主要按钮</button>
+      <span class="btn-label">bg: #f5c547 / color: #3b1701 / r: 8px</span>
+    </div>
+    <div class="button-item">
+      <button class="btn-secondary">次要按钮</button>
+      <span class="btn-label">bg: elevated / border: #3d3630 / r: 4px</span>
+    </div>
+    <div class="button-item">
+      <button class="btn-outline">线框按钮</button>
+      <span class="btn-label">transparent / border: #3d3630 / r: 4px</span>
+    </div>
+    <div class="button-item">
+      <button class="btn-ghost">幽灵按钮</button>
+      <span class="btn-label">transparent / no border / r: 4px</span>
+    </div>
+    <div class="button-item">
+      <button class="btn-sm">小尺寸</button>
+      <span class="btn-label">padding: 6px 12px / 13px / r: 4px</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CARDS -->
+<section class="section" id="cards">
+  <h2 class="section-title">卡片样式</h2>
+  <p class="section-subtitle">暗色表面卡片，小麦金边框强调。</p>
+
+  <div class="card-grid">
+    <div class="card card-bordered card-hover">
+      <h4>边框卡片</h4>
+      <p class="card-desc">暗色表面 + 细边框，适合内容分组和信息展示。</p>
+      <p class="card-label">bg: #2a2420 / border: 1px #3d3630 / r: 8px</p>
+    </div>
+    <div class="card card-elevated">
+      <h4>提升卡片</h4>
+      <p class="card-desc">较亮的表面色，用于二级内容区域或嵌套内容。</p>
+      <p class="card-label">bg: #332e28 / border: 1px #3d3630 / r: 8px</p>
+    </div>
+    <div class="card card-shadow">
+      <h4>阴影卡片</h4>
+      <p class="card-desc">带阴影的浮层卡片，适合弹窗和下拉菜单。</p>
+      <p class="card-label">shadow: 0 8px 24px rgba(0,0,0,0.29)</p>
+    </div>
+    <div class="card card-bordered card-accent">
+      <h4>强调卡片</h4>
+      <p class="card-desc">左侧金麦色竖线强调，用于重要通知和推荐内容。</p>
+      <p class="card-label">border-left: 3px #f5c547</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FORMS -->
+<section class="section" id="forms">
+  <h2 class="section-title">表单元素</h2>
+  <p class="section-subtitle">暗色输入框，金麦色焦点环。</p>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label>默认输入框</label>
+      <input type="text" placeholder="搜索或输入问题...">
+      <span class="form-hint">bg: #2a2420 / border: #3d3630 / r: 4px</span>
+    </div>
+    <div class="form-group">
+      <label>焦点状态</label>
+      <input type="text" placeholder="已聚焦" style="border-color:#f5c547; box-shadow: 0 0 0 2px rgba(245,197,71,0.4);">
+      <span class="form-hint">focus: gold ring rgba(245,197,71,0.4)</span>
+    </div>
+    <div class="form-group">
+      <label>错误状态</label>
+      <input type="text" class="error" placeholder="无效输入" value="错误内容">
+      <span class="form-error-text">验证错误 — 红色边框提示</span>
+    </div>
+    <div class="form-group">
+      <label>文本域</label>
+      <textarea placeholder="输入你的描述..."></textarea>
+      <span class="form-hint">与输入框同样式，可调整大小</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SPACING -->
+<section class="section" id="spacing">
+  <h2 class="section-title">间距系统</h2>
+  <p class="section-subtitle">基于 4px 基础单位的 8 级间距。</p>
+
+  <div class="spacing-row">
+    <div class="spacing-item"><div class="spacing-box" style="width:4px;"></div><span class="spacing-label">4px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:8px;"></div><span class="spacing-label">8px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:12px;"></div><span class="spacing-label">12px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:16px;"></div><span class="spacing-label">16px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:20px;"></div><span class="spacing-label">20px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:24px;"></div><span class="spacing-label">24px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:32px;"></div><span class="spacing-label">32px</span></div>
+    <div class="spacing-item"><div class="spacing-box" style="width:40px;"></div><span class="spacing-label">40px</span></div>
+  </div>
+</section>
+
+<!-- 7. BORDER RADIUS -->
+<section class="section" id="radius">
+  <h2 class="section-title">圆角系统</h2>
+  <p class="section-subtitle">4 级圆角，从功能性的小元素到药丸形状。</p>
+
+  <div class="radius-row">
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:4px;"></div>
+      <span class="radius-label">4px</span>
+      <span class="radius-context">sm — 图标/复选框</span>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:8px;"></div>
+      <span class="radius-label">8px</span>
+      <span class="radius-context">md — 按钮/卡片</span>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:16px;"></div>
+      <span class="radius-label">16px</span>
+      <span class="radius-context">lg — 弹窗/面板</span>
+    </div>
+    <div class="radius-item">
+      <div class="radius-box" style="border-radius:9999px; width:80px; height:40px;"></div>
+      <span class="radius-label">9999px</span>
+      <span class="radius-context">full — 药丸/头像</span>
+    </div>
+  </div>
+</section>
+
+<!-- 8. SHADOWS -->
+<section class="section" id="shadows">
+  <h2 class="section-title">阴影系统</h2>
+  <p class="section-subtitle">三级阴影 — 卡片悬浮、下拉菜单、全局弹窗。</p>
+
+  <div class="shadow-section">
+    <div class="shadow-grid">
+      <div class="shadow-card sh-sm">
+        <h4>Shadow Sm</h4>
+        <p>轻阴影 — 卡片、按钮悬浮态。</p>
+        <p style="margin-top:8px; font-family:monospace; font-size:11px; color:#8a7e72;">0 2px 8px rgba(0,0,0,0.10)</p>
+      </div>
+      <div class="shadow-card sh-md">
+        <h4>Shadow Md</h4>
+        <p>中阴影 — 下拉菜单、输入框焦点。</p>
+        <p style="margin-top:8px; font-family:monospace; font-size:11px; color:#8a7e72;">0 4px 16px rgba(0,0,0,0.12)</p>
+      </div>
+      <div class="shadow-card sh-lg">
+        <h4>Shadow Lg</h4>
+        <p>深阴影 — 全局弹窗、抽屉面板。</p>
+        <p style="margin-top:8px; font-family:monospace; font-size:11px; color:#8a7e72;">0 8px 24px rgba(0,0,0,0.16)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. TOKEN TABLE -->
+<section class="section" id="tokens">
+  <h2 class="section-title">令牌速查表</h2>
+  <p class="section-subtitle">所有设计令牌的 CSS 变量映射。</p>
+
+  <table class="token-table">
+    <thead>
+      <tr><th>令牌名称</th><th>变量</th><th>值</th><th>用途</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Primary</td><td><code>--primary</code></td><td>#f5c547</td><td>主色调</td></tr>
+      <tr><td>Primary Dark</td><td><code>--primary-dark</code></td><td>#e6b841</td><td>hover 态</td></tr>
+      <tr><td>Secondary</td><td><code>--secondary</code></td><td>#f5ede1</td><td>亮色背景</td></tr>
+      <tr><td>Decorative</td><td><code>--decorative</code></td><td>#3b1701</td><td>正文/深色</td></tr>
+      <tr><td>Dark BG</td><td><code>--dk-bg</code></td><td>#1a1614</td><td>暗色页面背景</td></tr>
+      <tr><td>Dark Surface</td><td><code>--dk-surface</code></td><td>#2a2420</td><td>暗色卡片</td></tr>
+      <tr><td>Dark Elevated</td><td><code>--dk-surface-elevated</code></td><td>#332e28</td><td>提升层</td></tr>
+      <tr><td>Dark Border</td><td><code>--dk-border</code></td><td>#3d3630</td><td>暗色边框</td></tr>
+      <tr><td>Dark Text 1</td><td><code>--dk-text-primary</code></td><td>#f5ede1</td><td>主要文本</td></tr>
+      <tr><td>Dark Text 2</td><td><code>--dk-text-secondary</code></td><td>#c4b8a8</td><td>次要文本</td></tr>
+      <tr><td>Success</td><td><code>--success</code></td><td>#52c41a</td><td>成功</td></tr>
+      <tr><td>Warning</td><td><code>--warning</code></td><td>#ff6700</td><td>警告</td></tr>
+      <tr><td>Error</td><td><code>--error</code></td><td>#f82834</td><td>错误</td></tr>
+      <tr><td>Radius SM</td><td><code>--radius-sm</code></td><td>4px</td><td>小元素</td></tr>
+      <tr><td>Radius MD</td><td><code>--radius-md</code></td><td>8px</td><td>标准元素</td></tr>
+      <tr><td>Radius LG</td><td><code>--radius-lg</code></td><td>16px</td><td>大容器</td></tr>
+      <tr><td>Radius Full</td><td><code>--radius-full</code></td><td>9999px</td><td>药丸形</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  小麦设计系统 XiaoMai Design System — Style Board v1.0
+</footer>
+
+</body>
+</html>
